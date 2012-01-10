@@ -11,9 +11,9 @@ class Cell
   end
 
   def should_live?
-    living_neighbours = @neighbours.inject(0) do |result, neighbour|
-      result += 1 if neighbour.alive?
-      result
+    living_neighbours = @neighbours.inject(0) do |count, neighbour|
+      count += 1 if neighbour.alive?
+      count
     end
     return true if alive? && (2..3) === living_neighbours
     return true if !alive? && 3 == living_neighbours
